@@ -5,3 +5,11 @@ query GetAllBooks {
     author
   }
 }
+
+subscription OnMessageAdded {
+  messages {
+    id
+    content
+    user
+  }
+}

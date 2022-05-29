@@ -11,3 +11,17 @@ export type GetAllBooksQuery = {
     author: string;
   }>;
 };
+
+export type OnMessageAddedSubscriptionVariables = Types.Exact<{
+  [key: string]: never;
+}>;
+
+export type OnMessageAddedSubscription = {
+  __typename?: "Subscription";
+  messages?: Array<{
+    __typename?: "Message";
+    id: string;
+    content: string;
+    user: string;
+  }> | null;
+};

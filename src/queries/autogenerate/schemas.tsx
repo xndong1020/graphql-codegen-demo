@@ -32,10 +32,18 @@ export type BookInput = {
   title: Scalars["String"];
 };
 
+export type Message = {
+  __typename?: "Message";
+  content: Scalars["String"];
+  id: Scalars["ID"];
+  user: Scalars["String"];
+};
+
 export type Mutation = {
   __typename?: "Mutation";
   CreateBook: Book;
   DeleteBook: Scalars["String"];
+  PostMessage: Scalars["ID"];
   UpdateBook: Scalars["String"];
 };
 
@@ -45,6 +53,11 @@ export type MutationCreateBookArgs = {
 
 export type MutationDeleteBookArgs = {
   id: Scalars["Int"];
+};
+
+export type MutationPostMessageArgs = {
+  content: Scalars["String"];
+  user: Scalars["String"];
 };
 
 export type MutationUpdateBookArgs = {
@@ -60,4 +73,9 @@ export type Query = {
 
 export type QueryGetOneBookArgs = {
   id: Scalars["Int"];
+};
+
+export type Subscription = {
+  __typename?: "Subscription";
+  messages?: Maybe<Array<Message>>;
 };

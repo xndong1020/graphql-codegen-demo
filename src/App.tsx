@@ -1,7 +1,15 @@
-import { useGetAllBooksQuery } from "./queries/autogenerate/hooks";
+import { SubscriptionResult } from "@apollo/client";
+import {
+  useGetAllBooksQuery,
+  useOnMessageAddedSubscription,
+} from "./queries/autogenerate/hooks";
 
 function App() {
   const { loading, data, error } = useGetAllBooksQuery();
+  const subscriptionResponse: SubscriptionResult =
+    useOnMessageAddedSubscription();
+
+  console.log("subscriptionResponse", subscriptionResponse);
 
   return (
     <>
